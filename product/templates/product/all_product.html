@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+ <!-- catagary section start -->
+      <div class="catagary_section layout_padding">
+         <div class="container">
+            <div class="catagary_main">
+               <div class="catagary_left">
+                  <h2 class="categary_text">Categary</h2>
+               </div>
+               <div class="catagary_right">
+                  <div class="catagary_menu">
+                     <ul>
+                      {% for category in categories|slice:'6' %}
+                        <li><a href="#">{{category}}</a></li>
+                      {% endfor %}
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+    <div class="computers_section layout_padding">
+         <div class="container">
+             {% for category in categories %}
+             <h1 class="computers_taital"><a href="{% url 'category' category.name %}">{{category}}</a></h1>
+             <div class="computers_section_2">
+                     <div class="container-fluid">
+                           <div class="row">
+                {% for item in category.products.all %}
+                              <div class="col-md-4">
+                                 <div class="computer_img" style="height: 200px;width: 200px; margin: 100px;><img src="{{item.image.url}}"></div>
+                                 <h4 class="computer_text">{{item.name}}</h4>
+                                 <div class="computer_text_main">
+                                    <h4 class="dell_text">{{item.type}}</h4>
+                                    <h6 class="price_text"><a href="#">{{item.price}}</a></h6>
+                                 </div>
+                                 <div class="cart_bt_1"><a href="#">Add To Cart</a></div>
+                              </div>
+                {% endfor %}
+                           </div>
+                     </div>
+                  </div>
+
+             {% endfor %}
+         </div>
+      </div>
+
+
+
+
+
+
+
+
+
+{% endblock body %}

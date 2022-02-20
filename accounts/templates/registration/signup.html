@@ -9,5 +9,8 @@
         {% bootstrap_form form %}
         <button type="submit" class="btn btn-primary boxed-btn3 w-100">Sign up</button>
     </form>
+    <div class="card-footer text-muted text-center">
+        Already have an account? <a href="{% url 'login' %}">Log in</a>
+    </div>
 </div>
 {% endblock body %}

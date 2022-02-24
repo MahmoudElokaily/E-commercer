@@ -7,4 +7,8 @@ urlpatterns = [
     path('login/' , auth_views.LoginView.as_view(template_name = 'registration/login.html') , name = 'login'),
     path('settings/change_password/',auth_views.PasswordChangeView.as_view(template_name='registration/change_password.html'),name='password_change'),
     path('settings/change_password/done/' , auth_views.PasswordChangeDoneView.as_view(template_name = 'registration/change_password_done.html') , name ='password_change_done'),
+    path('profile/' , views.profile , name = 'profile'),
+    path('profile_edit/', views.profile_edit , name='profile_edit'),
+    path('mycart/',views.my_cart,name='mycart'),
+
 ]

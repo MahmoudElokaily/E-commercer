@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block body %}
+    <div class="col-md-4">
+          <div class="computer_img" style="height: 200px;width: 200px; margin: 100px;"><img src="{{product.image.url}}"></div>
+          <h4 class="computer_text">{{product.name}}</h4>
+         <div class="computer_text_main">
+            <h4 class="dell_text">{{product.type}}</h4>
+            <h6 class="price_text">{{product.price}} $</h6>
+         </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="cart_bt_1"><button type="submit" >Add To Cart</button></div>
+        </form>
+      </div>
+{% endblock body %}

@@ -6,7 +6,7 @@ class Product(models.Model):
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='images')
     price = models.DecimalField(max_digits=8,decimal_places=2)
-    type = models.CharField(max_length=100)
+    type = models.CharField(max_length=100,null=True,blank=True)
     category = models.ForeignKey('Category' , on_delete=models.CASCADE , related_name='products')
     slug = models.CharField(max_length=50,blank=True , null = True)
 

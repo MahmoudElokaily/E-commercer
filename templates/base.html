@@ -46,24 +46,24 @@
                   <a href="contact.html">Contact</a>
                </div>
                <span style="font-size:30px;cursor:pointer; color: #fff;" onclick="openNav()"><img src="{% static 'images/toggle-icon.png' %}"></span>
-               <a class="navbar-brand" href="{% url 'home' %}" style="size:200px;">Elokaily <img src="{{user.image.url}}"></a></a>
+               <a class="navbar-brand" href="{% url 'home' %}" style="font-size:25px;">Elokaily <img src="{{user.image.url}}"></a></a>
                <form class="form-inline">
                   <div class="login_text">
                      {% if request.user.is_authenticated %}
                      <ul>
-                        <li style="color: black;">Welcome {{user.username}}</li>
-                        <li><a href="#"><img src="{% static 'images/user-icon.png' %}"></a></li>
-                        <li><a href="#"><img src="{% static 'images/trolly-icon.png' %}"></a></li>
-                        <li><a href="#"><img src="{% static 'images/search-icon.png' %}"></a></li>
+                        {% if request.user.is_staff %}
+                              <li style="color: blue;"><a style="color: blue;" href="{% url 'add_new_product' %}">Add New Product</a></li>
+                        {% endif %}
+                        <li style="color: black;"><a style="color: black;" href="{% url 'profile' %}">Welcome {{user.username}}</a></li>
+                        <li><a href="{% url 'profile' %}"><img src="{% static 'images/user-icon.png' %}"></a></li>
+                        <li><a href="{% url 'mycart' %}"><img src="{% static 'images/trolly-icon.png' %}"></a></li>
                         <li><a style="color: black;" href="{% url 'password_change' %}">Change Password</a></li>
                         <li><a style="color: black;" href="{% url 'logout' %}">Log out</a></li>
-
                      </ul>
                      {% else %}
                         <ul>
                            <li><a href="{% url 'login' %}" style="color: black;">login</a></li>
                            <li><a href="{% url 'signup' %}" style="color: black;">Sign up</a></li>
-                           <li><a href="#"><img src="{% static 'images/search-icon.png' %}"></a></li>
                         </ul>
                      {% endif %}
                   </div>

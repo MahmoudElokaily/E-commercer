@@ -41,3 +41,13 @@ def add_new_product(request):
         'form' : form,
     }
     return render(request , 'product/addNewProduct.html' , context)
+
+
+def all_categories(request):
+    Categories = Category.objects.all()
+    context = {
+        'categories' : Categories,
+    }
+    return render(request , 'product/all_category.html' ,context)
+
+

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'product',
     'accounts',
     'bootstrap4',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'product.context_processors.top_categories',
             ],
         },
     },
@@ -141,3 +143,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
+
+
+# payments
+STRIPE_SECRET_KEY = "sk_test_51KWi8hIM9C2BYrKZw7mmt0KmgZ9VwJuZeHNcUbTWx4KQwXcmAcdVIdvQlVBvgZ59mH3QHPbuDtOY9q4lb9SBHch300vIEAQQtH"
+STRIPE_PUBLISHABLE_KEY = "pk_test_51KWi8hIM9C2BYrKZUP9GqYZhFZpdMgp4BWuRvanJhyLvUZeqVsKIaZdRx8I1ZDdp9rSENRN5BqxCEExnGcdlL9g200dMtxwHQs"
+
+# SMTP Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mahmoudelokaily3@gmail.com'
+EMAIL_HOST_PASSWORD = 'ovzhtdgxmgmouyud'

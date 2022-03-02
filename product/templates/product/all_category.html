@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container">
+        {% for category in categories %}
+          <div class="catagary_section layout_padding">
+             <div class="container">
+                <div class="catagary_main">
+                   <div class="catagary_left">
+                       <h2 class="categary_text"><a href="{% url 'category' category.name %}" style="color: white;">{{category}}</a></h2>
+                   </div>
+                </div>
+             </div>
+          </div>
+        {% endfor %}
+    </div>
+{% endblock body %}

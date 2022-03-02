@@ -25,27 +25,28 @@
     <div class="computers_section layout_padding">
          <div class="container">
              {% for category in categories %}
-             <h1 class="computers_taital"><a href="{% url 'category' category.name %}">{{category}}</a></h1>
-             <div class="computers_section_2">
-                     <div class="container-fluid">
-                           <div class="row">
-                {% for item in category.products.all %}
-                              <div class="col-md-4">
-                                  <div class="computer_img" style="height: 200px;width: 200px; margin: 100px;"><a href="{% url 'product_details' item.id %}"><img src="{{item.image.url}}"></a></div>
-                                  <h4 class="computer_text"><a href="{% url 'product_details' item.id %}">{{item.name}}</a></h4>
-                                 <div class="computer_text_main">
-                                    <h4 class="dell_text">{{item.type}}</h4>
-                                    <h6 class="price_text"><a href="{% url 'product_details' item.id %}">{{item.price}} $</a></h6>
-                                 </div>
-                                 <div class="cart_bt_1"><a href="{% url 'product_details' item.id %}">Details</a></div>
-                              </div>
-                               <br>
-                {% endfor %}
+                {% if category.products.all.count > 0 %}
+                     <h1 class="computers_taital"><a href="{% url 'category' category.name %}">{{category}}</a></h1>
+                     <div class="computers_section_2">
+                             <div class="container-fluid">
+                                   <div class="row">
+                        {% for item in category.products.all %}
+                                      <div class="col-md-4">
+                                          <div class="computer_img" style="height: 200px;width: 200px; margin: 100px;"><a href="{% url 'product_details' item.id %}"><img src="{{item.image.url}}"></a></div>
+                                          <h4 class="computer_text"><a href="{% url 'product_details' item.id %}">{{item.name}}</a></h4>
+                                         <div class="computer_text_main">
+                                            <h4 class="dell_text">{{item.type}}</h4>
+                                            <h6 class="price_text"><a href="{% url 'product_details' item.id %}">{{item.price}} $</a></h6>
+                                         </div>
+                                         <div class="cart_bt_1"><a href="{% url 'product_details' item.id %}">Details</a></div>
+                                      </div>
+                                       <br>
+                        {% endfor %}
                                <br>
                            </div>
                      </div>
                   </div>
-
+                {% endif %}
              {% endfor %}
          </div>
       </div>

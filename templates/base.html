@@ -39,11 +39,11 @@
             <nav class="navbar navbar-light bg-light justify-content-between">
                <div id="mySidenav" class="sidenav">
                   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                  <a href="index.html">Home</a>
-                  <a href="computers.html">Computers</a>
-                  <a href="mans_clothes.html">Mans Clothes</a>
-                  <a href="womans_clothes.html">Womans Clothes</a>
-                  <a href="contact.html">Contact</a>
+                  <a href="{% url 'home' %}">Home</a>
+                  {% for category in categories %}
+                     <a href="{% url 'category' category.name %}">{{category}}</a>
+                  {% endfor %}
+                  <a href="{% url 'all_categories' %}" >See all categories</a>
                </div>
                <span style="font-size:30px;cursor:pointer; color: #fff;" onclick="openNav()"><img src="{% static 'images/toggle-icon.png' %}"></span>
                <a class="navbar-brand" href="{% url 'home' %}" style="font-size:25px;">Elokaily <img src="{{user.image.url}}"></a></a>
@@ -82,7 +82,7 @@
                <div class="footer_logo"><a href="index.html"><h1 style="color: white;">Elokaily</h1></a></div>
                <div class="social_icon">
                   <ul>
-                     <li><a href="#"><img src="{% static 'images/fb-icon.png' %}"></a></li>
+                     <li><a href="https://www.facebook.com/3mah.es"><img src="{% static 'images/fb-icon.png' %}"></a></li>
                      <li><a href="#"><img src="{% static 'images/twitter-icon.png' %}"></a></li>
                      <li><a href="#"><img src="{% static 'images/linkedin-icon.png' %}"></a></li>
                      <li><a href="#"><img src="{% static 'images/instagram-icon.png' %}"></a></li>
@@ -100,11 +100,10 @@
                      <h4 class="adderss_text">Menu</h4>
                      <div class="footer_menu">
                         <ul>
-                           <li><a href="index.html">Home</a></li>
-                           <li><a href="computers.html">Computers</a></li>
-                           <li><a href="Mans_clothes.html">Mans Clothes</a></li>
-                           <li><a href="womans_clothes.html">Womans Clothes</a></li>
-                           <li><a href="contact.html">Contact Us</a></li>
+                           <li><a href="{% url 'home' %}">Home</a></li>
+                           {% for category in categories|slice:'4' %}
+                              <li><a href="{% url 'category' category.name %}">{{category}}</a></li>
+                           {% endfor %}
                         </ul>
                      </div>
                   </div>
